@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kairos ご提案 | UNIAM様 記事LP・商品LP制作</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FAF7F2;
+    --sand:#F1E9DD;
+    --sand-2:#E6DBCB;
+    --white:#FFFFFF;
+    --ink:#2A2730;
+    --ink-soft:#6A6470;
+    --coral:#E66A4F;        /* 愛 */
+    --coral-deep:#C9533A;
+    --coral-pale:#FCE7E1;
+    --teal:#2F7D76;         /* 医学 */
+    --teal-pale:#DFF0EC;
+    --butter:#FFE08A;
+    --line:#E7DED0;
+    --shadow:0 18px 40px -24px rgba(42,39,48,.45);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--ivory); color:var(--ink); font-family:'Noto Sans JP',sans-serif; line-height:1.85; overflow-x:hidden; }
+  h1,h2,h3,h4,.zk{ font-family:'Zen Kaku Gothic New',sans-serif; }
+  .en{ font-family:'Outfit',sans-serif; }
+  a{ color:inherit; text-decoration:none; }
+  svg{ display:block; }
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 20px; }
+
+  .rv{ opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+  .rv.in{ opacity:1; transform:none; }
+  .rv.d1{ transition-delay:.1s; } .rv.d2{ transition-delay:.2s; } .rv.d3{ transition-delay:.3s; }
+
+  /* ---------- Header ---------- */
+  .top{ position:sticky; top:0; z-index:30; background:rgba(250,247,242,.88); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
+  .top .wrap{ display:flex; align-items:center; justify-content:space-between; height:62px; }
+  .k-logo{ display:flex; align-items:center; gap:10px; font-family:'Outfit'; font-weight:800; font-size:1.15rem; letter-spacing:.02em; }
+  .k-logo i{ width:24px; height:24px; border-radius:50% 50% 50% 4px; background:conic-gradient(var(--coral),var(--butter),var(--teal),var(--coral)); position:relative; display:block; }
+  .k-logo i::after{ content:""; position:absolute; inset:6px; border-radius:50%; background:var(--ivory); }
+  .top nav{ display:flex; gap:22px; font-size:.82rem; color:var(--ink-soft); }
+  .top nav a:hover{ color:var(--coral); }
+  .top .for{ font-family:'Outfit'; font-size:.74rem; letter-spacing:.12em; color:var(--ink-soft); border:1px solid var(--line); border-radius:999px; padding:5px 14px; background:#fff; }
+
+  /* ---------- Buttons ---------- */
+  .btn{ display:inline-flex; align-items:center; gap:10px; background:var(--coral); color:#fff; font-weight:700; font-family:'Zen Kaku Gothic New'; padding:15px 30px; border-radius:999px; transition:transform .25s, box-shadow .25s, background .25s; box-shadow:0 12px 24px -12px rgba(230,106,79,.7); }
+  .btn:hover{ transform:translateY(-2px); background:var(--coral-deep); }
+  .btn .ar{ width:22px; height:22px; border-radius:50%; background:#fff; color:var(--coral); display:flex; align-items:center; justify-content:center; font-size:.75rem; transition:transform .25s; }
+  .btn:hover .ar{ transform:translateX(3px); }
+  .btn.line{ background:#fff; color:var(--ink); border:1.5px solid var(--ink); box-shadow:none; }
+  .btn.line:hover{ background:var(--ink); color:#fff; }
+
+  /* ---------- Section head ---------- */
+  .sec{ padding:100px 0; position:relative; }
+  .sec-head{ margin-bottom:46px; }
+  .sec-head.center{ text-align:center; }
+  .eyebrow{ font-family:'Outfit'; font-weight:600; font-size:.8rem; letter-spacing:.2em; color:var(--coral); display:inline-flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .eyebrow::before{ content:""; width:22px; height:2px; background:var(--coral); border-radius:2px; }
+  .sec-head.center .eyebrow::after{ content:""; width:22px; height:2px; background:var(--coral); border-radius:2px; }
+  .sec-title{ font-size:clamp(1.5rem,3.3vw,2.25rem); font-weight:900; line-height:1.5; letter-spacing:.02em; }
+  .sec-lead{ color:var(--ink-soft); margin-top:14px; max-width:720px; font-size:.95rem; }
+  .sec-head.center .sec-lead{ margin-left:auto; margin-right:auto; }
+
+  /* ---------- Hero ---------- */
+  .hero{ position:relative; overflow:hidden; padding:72px 0 96px; }
+  .hero::before{ content:""; position:absolute; width:620px; height:620px; right:-160px; top:-180px; border-radius:50%; background:radial-gradient(circle, var(--coral-pale), transparent 65%); }
+  .hero::after{ content:""; position:absolute; width:520px; height:520px; left:-220px; bottom:-260px; border-radius:50%; background:radial-gradient(circle, var(--teal-pale), transparent 65%); }
+  .hero-grid{ position:relative; z-index:2; display:grid; grid-template-columns:1.15fr .85fr; gap:40px; align-items:center; }
+  .tag{ display:inline-block; font-size:.78rem; line-height:1.6; background:#fff; border:1px solid var(--line); border-radius:999px; padding:6px 14px; color:var(--ink-soft); margin-bottom:24px; }
+  .tag b{ color:var(--teal); font-weight:700; }
+  .hero h1{ font-size:clamp(1.9rem,4.4vw,3.15rem); font-weight:900; line-height:1.45; letter-spacing:.01em; margin-bottom:22px; }
+  .hero h1 .c{ color:var(--coral); }
+  .hero h1 .u{ background:linear-gradient(transparent 66%, var(--butter) 66%); }
+  .hero .lead{ color:var(--ink-soft); max-width:540px; margin-bottom:30px; }
+  .hero-ctas{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom:30px; }
+  .facts{ display:flex; flex-wrap:wrap; gap:10px; }
+  .facts span{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:8px 14px; font-size:.8rem; color:var(--ink-soft); }
+  .facts b{ color:var(--ink); }
+
+  /* phone mock */
+  .phone-wrap{ position:relative; width:min(310px, 82vw); margin:0 auto; }
+  .phone-wrap .ears{ position:absolute; top:-30px; left:0; right:0; height:40px; z-index:0; }
+  .phone{ position:relative; z-index:1; background:#1E1C22; border-radius:42px; padding:11px; box-shadow:0 40px 60px -30px rgba(42,39,48,.6); }
+  .screen{ position:relative; border-radius:32px; overflow:hidden; background:#fff; height:560px; }
+  .screen-scroll{ height:100%; overflow-y:auto; scrollbar-width:none; }
+  .screen-scroll::-webkit-scrollbar{ display:none; }
+  .m-head{ display:flex; justify-content:space-between; align-items:center; padding:12px 14px 8px; font-family:'Outfit'; font-weight:800; font-size:.8rem; letter-spacing:.14em; }
+  .m-head small{ font-family:'Noto Sans JP'; font-weight:500; letter-spacing:0; font-size:.58rem; color:var(--ink-soft); }
+  .m-fv{ margin:0 10px; border-radius:18px; background:linear-gradient(160deg,#FFF1E8,#F7E8DA 60%,#EAF4F0); padding:18px 14px 16px; position:relative; overflow:hidden; }
+  .m-fv .q{ font-size:.62rem; color:var(--teal); font-weight:700; margin-bottom:6px; }
+  .m-fv h4{ font-size:1.05rem; line-height:1.45; font-weight:900; }
+  .m-fv h4 em{ font-style:normal; color:var(--coral); }
+  .m-fv .cat{ width:96px; margin:10px auto 2px; }
+  .m-badges{ display:flex; gap:5px; justify-content:center; margin-top:6px; }
+  .m-badges span{ background:#fff; border-radius:999px; font-size:.52rem; padding:3px 8px; font-weight:700; color:var(--teal); box-shadow:0 2px 6px rgba(0,0,0,.06); }
+  .m-offer{ margin:12px 10px 0; border:2px dashed var(--coral); border-radius:14px; padding:10px 12px; text-align:center; background:#FFF8F5; }
+  .m-offer b{ display:block; font-size:.78rem; }
+  .m-offer small{ font-size:.58rem; color:var(--ink-soft); }
+  .m-cta{ display:block; margin:10px 10px 0; text-align:center; background:var(--coral); color:#fff; font-weight:700; font-size:.78rem; border-radius:999px; padding:10px; }
+  .m-sec{ margin:16px 12px 0; }
+  .m-sec h5{ font-size:.78rem; font-weight:900; margin-bottom:6px; font-family:'Zen Kaku Gothic New'; }
+  .m-sec p{ font-size:.62rem; color:var(--ink-soft); line-height:1.75; }
+  .m-pts{ display:grid; grid-template-columns:1fr 1fr; gap:6px; margin-top:8px; }
+  .m-pts div{ background:var(--sand); border-radius:10px; padding:8px; font-size:.58rem; font-weight:700; }
+  .m-pts div i{ display:block; font-style:normal; color:var(--coral); font-family:'Outfit'; font-size:.7rem; }
+  .m-voice{ background:var(--teal-pale); border-radius:12px; padding:9px 10px; font-size:.6rem; margin-top:6px; }
+  .m-voice b{ color:var(--teal); }
+  .m-end{ height:40px; }
+  .sticky-cta{ position:absolute; left:10px; right:10px; bottom:10px; background:var(--ink); color:#fff; border-radius:999px; padding:9px 12px; font-size:.68rem; font-weight:700; display:flex; justify-content:space-between; align-items:center; transform:translateY(140%); transition:transform .45s cubic-bezier(.2,.7,.2,1); z-index:3; }
+  .sticky-cta.show{ transform:none; }
+  .sticky-cta span{ background:var(--coral); border-radius:999px; padding:4px 10px; }
+  .scroll-hint{ text-align:center; font-size:.72rem; color:var(--ink-soft); margin-top:14px; }
+  .scroll-hint b{ color:var(--coral); }
+  .float-note{ position:absolute; z-index:4; background:#fff; border-radius:14px; padding:8px 12px; font-size:.7rem; box-shadow:var(--shadow); line-height:1.5; }
+  .float-note b{ color:var(--coral); display:block; font-family:'Outfit'; font-size:.66rem; letter-spacing:.1em; }
+  .fn1{ left:-70px; top:120px; animation:bob 5s ease-in-out infinite; }
+  .fn2{ right:-64px; top:300px; animation:bob 6s ease-in-out infinite reverse; }
+  @keyframes bob{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-8px); } }
+
+  /* ---------- Understanding ---------- */
+  .u-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .u-card{ background:#fff; border-radius:22px; padding:24px 20px; box-shadow:var(--shadow); position:relative; overflow:hidden; }
+  .u-card .ic{ width:42px; height:42px; border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+  .u-card .ic svg{ width:22px; height:22px; }
+  .u-card h3{ font-size:1rem; line-height:1.55; margin-bottom:8px; }
+  .u-card p{ font-size:.85rem; color:var(--ink-soft); }
+  .tone-coral{ background:var(--coral-pale); color:var(--coral); }
+  .tone-teal{ background:var(--teal-pale); color:var(--teal); }
+  .tone-butter{ background:#FFF4CC; color:#9A7400; }
+  .tone-ink{ background:var(--sand); color:var(--ink); }
+  .brand-line{ margin-top:34px; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:14px 20px; background:#fff; border-radius:999px; padding:16px 26px; box-shadow:var(--shadow); font-size:.9rem; }
+  .brand-line .x{ color:var(--coral); font-family:'Outfit'; font-weight:800; }
+  .brand-line b{ font-family:'Zen Kaku Gothic New'; font-weight:900; }
+  .brand-line .arrow{ color:var(--ink-soft); }
+  .brand-line .goal{ background:var(--ink); color:#fff; border-radius:999px; padding:4px 14px; font-weight:700; font-family:'Zen Kaku Gothic New'; }
+
+  /* ---------- Reading (tabs) ---------- */
+  .reading{ background:#fff; }
+  .tabs{ display:inline-flex; background:var(--sand); border-radius:999px; padding:5px; gap:4px; margin-bottom:30px; }
+  .tab{ border:none; background:none; font:inherit; font-family:'Zen Kaku Gothic New'; font-weight:700; font-size:.92rem; color:var(--ink-soft); padding:10px 22px; border-radius:999px; cursor:pointer; transition:all .25s; }
+  .tab[aria-selected="true"]{ background:#fff; color:var(--ink); box-shadow:0 6px 14px -8px rgba(42,39,48,.4); }
+  .tabs-center{ text-align:center; }
+  .panel{ display:none; grid-template-columns:.8fr 1.2fr; gap:36px; align-items:start; animation:pop .45s ease; }
+  .panel.on{ display:grid; }
+  @keyframes pop{ from{ opacity:0; transform:translateY(10px); } to{ opacity:1; transform:none; } }
+  .flowmap{ background:var(--ivory); border-radius:22px; padding:20px; border:1px solid var(--line); }
+  .flowmap h4{ font-size:.82rem; color:var(--ink-soft); margin-bottom:12px; font-weight:700; display:flex; justify-content:space-between; }
+  .flowmap h4 span{ font-family:'Outfit'; letter-spacing:.12em; color:var(--teal); font-size:.7rem; }
+  .fm{ display:grid; gap:6px; }
+  .fm div{ display:flex; align-items:center; gap:10px; background:#fff; border-radius:10px; padding:8px 12px; font-size:.8rem; border:1px solid var(--line); }
+  .fm div i{ font-style:normal; font-family:'Outfit'; font-weight:600; font-size:.7rem; color:var(--ink-soft); width:18px; }
+  .fm div.cta{ background:var(--coral); color:#fff; border-color:var(--coral); font-weight:700; }
+  .fm div.cta i{ color:#fff; }
+  .fm div.flag{ border:1.5px dashed var(--coral); background:#FFF8F5; }
+  .fm div .note{ margin-left:auto; font-size:.66rem; color:var(--coral); font-weight:700; white-space:nowrap; }
+  .caveat{ font-size:.74rem; color:var(--ink-soft); margin-top:12px; }
+  .finds{ display:grid; gap:12px; }
+  .find{ display:grid; grid-template-columns:auto 1fr; gap:14px; background:var(--ivory); border-radius:18px; padding:16px 18px; border:1px solid var(--line); transition:transform .25s, border-color .25s; }
+  .find:hover{ transform:translateX(4px); border-color:var(--coral); }
+  .find .no{ font-family:'Outfit'; font-weight:800; color:var(--coral); font-size:1.2rem; line-height:1.3; }
+  .find h3{ font-size:.98rem; margin-bottom:4px; line-height:1.5; }
+  .find p{ font-size:.85rem; color:var(--ink-soft); }
+  .find .fix{ display:inline-block; margin-top:6px; font-size:.78rem; color:var(--teal); font-weight:700; }
+  .find .fix::before{ content:"→ "; }
+
+  /* ---------- Demo ---------- */
+  .demo{ overflow:hidden; }
+  .demo-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+  .switch{ display:inline-flex; background:#fff; border-radius:999px; padding:5px; border:1px solid var(--line); margin-bottom:22px; }
+  .switch button{ border:none; background:none; font:inherit; font-family:'Outfit'; font-weight:600; letter-spacing:.08em; font-size:.85rem; padding:9px 22px; border-radius:999px; cursor:pointer; color:var(--ink-soft); transition:all .25s; }
+  .switch button[aria-pressed="true"]{ background:var(--ink); color:#fff; }
+  .ba-list{ list-style:none; display:grid; gap:10px; }
+  .ba-list li{ background:#fff; border-radius:14px; padding:12px 16px 12px 46px; position:relative; font-size:.88rem; box-shadow:0 8px 20px -18px rgba(42,39,48,.6); }
+  .ba-list li::before{ content:""; position:absolute; left:16px; top:16px; width:18px; height:18px; border-radius:50%; background:var(--teal-pale); }
+  .ba-list li::after{ content:""; position:absolute; left:21px; top:20px; width:8px; height:5px; border-left:2px solid var(--teal); border-bottom:2px solid var(--teal); transform:rotate(-45deg); }
+  .ba-list.before li::before{ background:var(--sand); }
+  .ba-list.before li::after{ border:none; width:8px; height:2px; background:var(--ink-soft); transform:none; top:24px; }
+  .ba-list li b{ font-family:'Zen Kaku Gothic New'; }
+  .ba-pane{ display:none; }
+  .ba-pane.on{ display:block; animation:pop .4s ease; }
+  /* bar comparison */
+  .bars{ display:flex; gap:28px; justify-content:center; align-items:flex-end; }
+  .bar{ text-align:center; }
+  .bar .track{ width:64px; height:380px; border-radius:20px; background:linear-gradient(var(--sand),#fff); border:1px solid var(--line); position:relative; margin:0 auto 10px; }
+  .bar .dot{ position:absolute; left:50%; width:30px; height:30px; margin-left:-15px; border-radius:50%; background:var(--coral); color:#fff; font-size:.6rem; font-weight:700; display:flex; align-items:center; justify-content:center; box-shadow:0 6px 12px -6px rgba(230,106,79,.9); transform:scale(0); transition:transform .5s cubic-bezier(.3,1.6,.5,1); }
+  .bar .dot.on{ transform:scale(1); }
+  .bar .dot.q{ background:var(--butter); color:var(--ink); }
+  .bar .stick{ position:absolute; left:6px; right:6px; bottom:6px; height:18px; border-radius:999px; background:var(--ink); color:#fff; font-size:.55rem; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .5s .6s; }
+  .bar .stick.on{ opacity:1; }
+  .bar span{ font-size:.8rem; font-weight:700; font-family:'Zen Kaku Gothic New'; }
+  .bar small{ display:block; font-size:.7rem; color:var(--ink-soft); }
+  .legend{ display:flex; gap:16px; justify-content:center; margin-top:16px; font-size:.74rem; color:var(--ink-soft); flex-wrap:wrap; }
+  .legend i{ display:inline-block; width:12px; height:12px; border-radius:50%; vertical-align:-1px; margin-right:5px; }
+
+  /* ---------- Structure ---------- */
+  .structure{ background:var(--sand); }
+  .st-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .st-card{ background:#fff; border-radius:24px; padding:28px 26px; box-shadow:var(--shadow); }
+  .st-card .kind{ display:inline-block; font-family:'Outfit'; font-weight:600; font-size:.72rem; letter-spacing:.14em; border-radius:999px; padding:3px 12px; margin-bottom:10px; }
+  .st-card.a .kind{ background:var(--coral-pale); color:var(--coral-deep); }
+  .st-card.b .kind{ background:var(--teal-pale); color:var(--teal); }
+  .st-card h3{ font-size:1.2rem; margin-bottom:6px; }
+  .st-card > p{ font-size:.86rem; color:var(--ink-soft); margin-bottom:18px; }
+  .steps{ list-style:none; counter-reset:s; position:relative; }
+  .steps::before{ content:""; position:absolute; left:13px; top:8px; bottom:8px; width:2px; background:var(--line); }
+  .steps li{ counter-increment:s; position:relative; padding:0 0 14px 40px; font-size:.86rem; }
+  .steps li::before{ content:counter(s); position:absolute; left:0; top:0; width:28px; height:28px; border-radius:50%; background:#fff; border:2px solid var(--line); font-family:'Outfit'; font-weight:600; font-size:.74rem; display:flex; align-items:center; justify-content:center; }
+  .st-card.a .steps li.key::before{ background:var(--coral); border-color:var(--coral); color:#fff; }
+  .st-card.b .steps li.key::before{ background:var(--teal); border-color:var(--teal); color:#fff; }
+  .steps li b{ font-family:'Zen Kaku Gothic New'; display:block; line-height:1.5; }
+  .steps li span{ color:var(--ink-soft); font-size:.8rem; }
+  .compliance{ margin-top:24px; background:#fff; border-radius:20px; padding:20px 24px; display:flex; gap:18px; align-items:flex-start; border:1.5px solid var(--teal); }
+  .compliance .ic{ flex:none; width:44px; height:44px; border-radius:14px; background:var(--teal-pale); color:var(--teal); display:flex; align-items:center; justify-content:center; }
+  .compliance h3{ font-size:1rem; margin-bottom:4px; }
+  .compliance p{ font-size:.86rem; color:var(--ink-soft); }
+
+  /* ---------- Scope ---------- */
+  .scope-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .scope{ background:#fff; border-radius:20px; padding:22px 20px; box-shadow:var(--shadow); position:relative; }
+  .scope .lv{ position:absolute; right:16px; top:18px; font-size:.66rem; font-weight:700; border-radius:999px; padding:2px 10px; }
+  .lv.main{ background:var(--coral); color:#fff; }
+  .lv.ok{ background:var(--teal-pale); color:var(--teal); }
+  .scope h3{ font-size:1rem; margin:8px 0 6px; }
+  .scope p{ font-size:.83rem; color:var(--ink-soft); }
+  .scope .ic{ width:40px; height:40px; border-radius:12px; display:flex; align-items:center; justify-content:center; }
+  .scope .ic svg{ width:20px; height:20px; }
+
+  /* ---------- Workflow ---------- */
+  .flow{ display:grid; grid-template-columns:repeat(5,1fr); gap:12px; }
+  .fl{ background:#fff; border-radius:18px; padding:20px 16px; text-align:center; box-shadow:var(--shadow); position:relative; }
+  .fl:not(:last-child)::after{ content:""; position:absolute; right:-10px; top:50%; width:8px; height:8px; border-top:2px solid var(--coral); border-right:2px solid var(--coral); transform:translateY(-50%) rotate(45deg); }
+  .fl .n{ font-family:'Outfit'; font-weight:800; color:var(--coral); font-size:.78rem; letter-spacing:.12em; }
+  .fl h4{ font-size:.95rem; margin:4px 0 6px; }
+  .fl p{ font-size:.78rem; color:var(--ink-soft); }
+  .hours{ margin-top:30px; background:#fff; border-radius:22px; padding:24px; box-shadow:var(--shadow); }
+  .hours h3{ font-size:1rem; margin-bottom:4px; }
+  .hours > p{ font-size:.82rem; color:var(--ink-soft); margin-bottom:16px; }
+  .hbar{ display:flex; height:40px; border-radius:12px; overflow:hidden; }
+  .hbar div{ display:flex; align-items:center; justify-content:center; font-size:.72rem; font-weight:700; color:#fff; white-space:nowrap; overflow:hidden; width:0; transition:width 1.1s cubic-bezier(.2,.7,.2,1); }
+  .hbar .h1{ background:var(--coral); } .hbar .h2{ background:var(--teal); } .hbar .h3{ background:#C99A2E; } .hbar .h4{ background:var(--ink-soft); }
+  .hlegend{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:14px; font-size:.78rem; color:var(--ink-soft); }
+  .hlegend b{ display:block; color:var(--ink); font-family:'Zen Kaku Gothic New'; }
+  .hlegend i{ display:inline-block; width:10px; height:10px; border-radius:3px; margin-right:6px; }
+
+  /* ---------- Answers ---------- */
+  .answers{ background:#fff; }
+  .ans{ display:grid; gap:12px; }
+  .ans-row{ display:grid; grid-template-columns:230px 1fr; gap:18px; background:var(--ivory); border-radius:18px; padding:18px 22px; border:1px solid var(--line); }
+  .ans-row dt{ font-family:'Zen Kaku Gothic New'; font-weight:900; display:flex; gap:10px; align-items:flex-start; line-height:1.5; }
+  .ans-row dt .n{ flex:none; width:26px; height:26px; border-radius:50%; background:var(--ink); color:#fff; font-family:'Outfit'; font-size:.75rem; display:flex; align-items:center; justify-content:center; }
+  .ans-row dd{ font-size:.9rem; color:var(--ink-soft); }
+  .ans-row dd b{ color:var(--ink); }
+  .ans-row dd a{ color:var(--coral); text-decoration:underline; word-break:break-all; }
+  .rate{ display:flex; flex-wrap:wrap; gap:10px; margin-top:4px; }
+  .rate span{ background:#fff; border:1px solid var(--line); border-radius:12px; padding:8px 14px; font-size:.84rem; }
+  .rate span b{ font-family:'Outfit'; font-size:1.2rem; color:var(--coral); }
+
+  /* ---------- Closing ---------- */
+  .closing{ text-align:center; overflow:hidden; background:var(--ink); color:#fff; }
+  .closing::before{ content:""; position:absolute; width:520px; height:520px; left:50%; top:-260px; margin-left:-260px; border-radius:50%; background:radial-gradient(circle, rgba(230,106,79,.35), transparent 65%); }
+  .closing .wrap{ position:relative; }
+  .closing .eyebrow{ color:var(--butter); }
+  .closing .eyebrow::before, .closing .eyebrow::after{ background:var(--butter); }
+  .closing h2{ font-size:clamp(1.5rem,3.6vw,2.3rem); font-weight:900; line-height:1.6; margin-bottom:16px; }
+  .closing h2 .c{ color:var(--butter); }
+  .closing p{ color:rgba(255,255,255,.75); max-width:620px; margin:0 auto 32px; }
+  .closing .cat-peek{ width:140px; margin:40px auto -100px; opacity:.95; }
+  footer{ background:#1E1C22; color:rgba(255,255,255,.55); text-align:center; font-size:.78rem; padding:22px 0; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1000px){
+    .top nav{ display:none; }
+    .hero-grid, .demo-grid{ grid-template-columns:1fr; }
+    .phone-wrap{ margin-top:30px; }
+    .fn1{ left:-40px; } .fn2{ right:-40px; }
+    .u-grid, .scope-grid{ grid-template-columns:repeat(2,1fr); }
+    .panel{ grid-template-columns:1fr; }
+    .flow{ grid-template-columns:repeat(3,1fr); }
+    .fl:nth-child(3)::after{ display:none; }
+  }
+  @media (max-width:640px){
+    .sec{ padding:72px 0; }
+    .top .for{ display:none; }
+    .u-grid, .scope-grid, .st-grid{ grid-template-columns:1fr; }
+    .flow{ grid-template-columns:1fr 1fr; }
+    .fl::after{ display:none; }
+    .fn1, .fn2{ display:none; }
+    .ans-row{ grid-template-columns:1fr; gap:6px; }
+    .hlegend{ grid-template-columns:1fr 1fr; }
+    .tab{ padding:9px 16px; font-size:.85rem; }
+    .bar .track{ height:320px; width:56px; }
+    .brand-line{ border-radius:22px; }
+    .compliance{ flex-direction:column; }
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{ animation:none !important; transition:none !important; }
+    .rv{ opacity:1; transform:none; }
+    .bar .dot{ transform:scale(1); }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="cat" viewBox="0 0 120 110">
+      <path d="M18 46 L22 6 L48 30 Q60 26 72 30 L98 6 L102 46 Q110 60 104 76 Q94 104 60 104 Q26 104 16 76 Q10 60 18 46Z" fill="#F4C9A0" stroke="#2A2730" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M26 16 L30 34 L40 28Z M94 16 L90 34 L80 28Z" fill="#F2A48F"/>
+      <path d="M40 60 q6 -7 12 0" stroke="#2A2730" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+      <path d="M68 60 q6 -7 12 0" stroke="#2A2730" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+      <path d="M56 70 h8 l-4 5z" fill="#E66A4F"/>
+      <path d="M60 75 q-5 8 -11 4 M60 75 q5 8 11 4" stroke="#2A2730" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+      <path d="M8 66 h22 M10 76 l20 -4 M112 66 h-22 M110 76 l-20 -4" stroke="#2A2730" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="36" cy="74" r="5" fill="#F2A48F" opacity=".6"/><circle cx="84" cy="74" r="5" fill="#F2A48F" opacity=".6"/>
+    </symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 8v8M8 12h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 19h16M7 16V11M12 16V7M17 16v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M5 5h14v10H10l-5 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24"><path d="M5 19l1-4L16 5l3 3L9 18z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-layout" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 9h16M10 9v11" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 16l4-4 3 3 2-2 2 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="9" cy="9" r="1.5" fill="currentColor"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="M9 8l-4 4 4 4M15 8l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <div class="k-logo"><i></i>Kairos</div>
+    <nav aria-label="ページ内メニュー">
+      <a href="#reading">参考LPの読み解き</a>
+      <a href="#demo">改善デモ</a>
+      <a href="#structure">構成の型</a>
+      <a href="#answers">ご質問への回答</a>
+    </nav>
+    <div class="for">PROPOSAL FOR UNIAM</div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="tag">Kairosからのご提案 ｜ <b>記事LP・商品LP</b> デザイン＆構成</span>
+      <h1>ねこを想う気持ちを、<br><span class="c">「試してみよう」</span>まで<br><span class="u">連れていくLPを。</span></h1>
+      <p class="lead">「ねこの一生に、愛と医学を。」——獣医学に裏打ちされた確かさと、ねこへのまっすぐな愛情。その両方が伝わるデザインで、記事LP・商品LPの読みやすさと購入までの導線を、社内チームの皆さまと一緒に磨き続けます。</p>
+      <div class="hero-ctas">
+        <a class="btn" href="#demo">改善デモを見る <span class="ar">›</span></a>
+        <a class="btn line" href="#answers">ご質問への回答</a>
+      </div>
+      <div class="facts">
+        <span>単価 <b>3,000円</b>／h（税込）</span>
+        <span>稼働 <b>月40〜50時間</b></span>
+        <span>開始 <b>ご契約後すぐ</b></span>
+      </div>
+    </div>
+
+    <div class="phone-wrap rv" aria-label="記事LPの改善イメージ（スマートフォン）">
+      <div class="float-note fn1"><b>OFFER FIRST</b>お試し条件を<br>早めに提示</div>
+      <div class="float-note fn2"><b>STICKY CTA</b>読み進めると<br>購入ボタンが追従</div>
+      <div class="phone">
+        <div class="screen">
+          <div class="screen-scroll" id="phoneScroll">
+            <div class="m-head">UNIAM <small>獣医師が開発した、ねこのごはん</small></div>
+            <div class="m-fv">
+              <p class="q">今のフード、本当に愛猫にあっていますか？</p>
+              <h4>ねこは<em>肉食動物</em>。<br>だから、ごはんは<br>お肉が主役。</h4>
+              <svg class="cat" viewBox="0 0 120 110"><use href="#cat"/></svg>
+              <div class="m-badges"><span>獣医師開発</span><span>グレインフリー</span><span>小粒</span></div>
+            </div>
+            <div class="m-offer"><b>まずはお試しサイズから</b><small>価格・送料・返金保証の条件をここに明記</small></div>
+            <a class="m-cta" href="#demo">お試しを申し込む ›</a>
+            <div class="m-sec"><h5>ねこの体に合わせた4つのこと</h5>
+              <div class="m-pts"><div><i>01</i>動物性たんぱく質が中心</div><div><i>02</i>穀物を使わないレシピ</div><div><i>03</i>食べやすい小粒</div><div><i>04</i>栄養を守る製法</div></div>
+            </div>
+            <div class="m-sec"><h5>獣医師から</h5><p>なぜこのレシピにしたのか。開発の理由を、専門用語をかみくだいてお伝えします。</p></div>
+            <div class="m-sec"><h5>カイヌシさんの声</h5>
+              <div class="m-voice"><b>★★★★★</b>「食いつきが違いました」<br><small>※口コミは実際のお声を掲載</small></div>
+              <div class="m-voice"><b>★★★★★</b>「小粒で食べやすそう」</div>
+            </div>
+            <div class="m-sec"><h5>よくあるご質問</h5><p>切り替え方・保存方法・定期の解約方法など。</p></div>
+            <a class="m-cta" href="#demo">お試しを申し込む ›</a>
+            <div class="m-end"></div>
+          </div>
+          <div class="sticky-cta" id="stickyCta">お試しサイズ<span>申し込む ›</span></div>
+        </div>
+      </div>
+      <p class="scroll-hint">画面の中を<b>スクロール</b>してみてください</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== UNDERSTANDING ===== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">UNDERSTANDING</span>
+      <h2 class="sec-title">ご依頼から読み取ったこと</h2>
+      <p class="sec-lead">単発の制作ではなく、社内チームと相談しながら継続的にLPを作り、改善していくお仕事だと理解しています。</p>
+    </div>
+    <div class="u-grid">
+      <div class="u-card rv"><div class="ic tone-coral"><svg><use href="#i-heart"/></svg></div><h3>ブランドの世界観を守る</h3><p>「愛」と「医学」、そして遊び心。売り場のデザインでも、UNIAMらしい温度感を崩さないこと。</p></div>
+      <div class="u-card rv d1"><div class="ic tone-teal"><svg><use href="#i-plus"/></svg></div><h3>記事LPと商品LPは役割が違う</h3><p>記事LPは「気づき」から信頼を積み上げ、商品LPは比較検討中の方に迷わず決めてもらう。目的に合わせて設計を変えます。</p></div>
+      <div class="u-card rv d2"><div class="ic tone-butter"><svg><use href="#i-chart"/></svg></div><h3>購入率を意識した改善</h3><p>CTAの位置・文言、オファーの見せ方、ファーストビュー。数字を見ながら、仮説を立てて直していきます。</p></div>
+      <div class="u-card rv d3"><div class="ic tone-ink"><svg><use href="#i-chat"/></svg></div><h3>スマホでの読みやすさ</h3><p>広告から来る方の多くはスマートフォン。1スクロールごとに「次を読みたくなる」レイアウトを基本にします。</p></div>
+    </div>
+    <div class="brand-line rv">
+      <b>獣医学の確かさ</b><span class="x">×</span><b>ねこへの愛情</b><span class="x">×</span><b>遊び心</b><span class="arrow">→</span><span class="goal">読みやすく、買いやすいLP</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== READING ===== -->
+<section class="sec reading" id="reading">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="eyebrow">LP READING</span>
+      <h2 class="sec-title">参考LP2本を、読み込みました</h2>
+      <p class="sec-lead">ご提示の記事LPと商品LPの構成を整理し、「すぐに試せる改善の伸びしろ」をまとめました。</p>
+    </div>
+    <div class="tabs-center rv">
+      <div class="tabs" role="tablist" aria-label="LPの種類">
+        <button class="tab" role="tab" aria-selected="true" data-p="pa">記事LP（WiLD PRO）</button>
+        <button class="tab" role="tab" aria-selected="false" data-p="pb">商品LP（チキン）</button>
+      </div>
+    </div>
+
+    <div class="panel on" id="pa" role="tabpanel">
+      <div class="flowmap">
+        <h4>現在の流れ <span>ARTICLE LP</span></h4>
+        <div class="fm">
+          <div><i>01</i>今のフード、本当にあっていますか？</div>
+          <div><i>02</i>ねこは肉食動物という教育</div>
+          <div><i>03</i>市販フードの課題</div>
+          <div><i>04</i>UNIAMの考え方</div>
+          <div><i>05</i>商品紹介・4つの特徴</div>
+          <div><i>06</i>さらに選ばれる理由</div>
+          <div><i>07</i>カイヌシさんの声</div>
+          <div><i>08</i>お試し・返金保証・送料無料</div>
+          <div class="flag"><i>09</i>3問のクイズ（必須）<span class="note">ここまでCTAなし</span></div>
+          <div class="cta"><i>10</i>お申し込みはこちら</div>
+        </div>
+        <p class="caveat">※公開ページのソースから読み取れた範囲での整理です。実際の数値や意図を伺ったうえで優先順位を決めます。</p>
+      </div>
+      <div class="finds">
+        <div class="find"><span class="no">01</span><div><h3>最初の購入ボタンが、ページの最後</h3><p>共感から商品紹介までの流れはとても丁寧です。一方で、途中で「欲しい」と思った方が申し込める場所がありません。</p><span class="fix">商品紹介・口コミの直後にCTAを追加し、スマホでは追従ボタンを表示</span></div></div>
+        <div class="find"><span class="no">02</span><div><h3>申し込み前の「3問必須クイズ」</h3><p>楽しく理解を深める仕掛けですが、必須だと購入直前のひと手間になります。</p><span class="fix">クイズは任意にするか、本文の途中へ移動。ABテストで比較</span></div></div>
+        <div class="find"><span class="no">03</span><div><h3>お試しの条件が、ボタンの近くに見えない</h3><p>お試しサイズ・返金保証・送料無料という強いオファーがあるので、価格や容量と一緒に、ボタンのそばで見せたいところです。</p><span class="fix">価格・容量・保証条件をまとめた「オファーボックス」をCTA直前に</span></div></div>
+        <div class="find"><span class="no">04</span><div><h3>表記の小さなゆれ</h3><p>「WiLD PRO」「ワイルドプロ」「uniam ドライフード」の表記が混在し、一部に文字の誤りも見られました。</p><span class="fix">表記ルールを決めて統一。公開前の校正チェックを習慣化</span></div></div>
+        <div class="find"><span class="no">05</span><div><h3>スマホで拡大できない設定</h3><p>ページの設定でピンチ操作による拡大が止められているため、小さな文字が読みにくい方もいらっしゃいます。</p><span class="fix">拡大できる設定に戻し、本文の文字サイズも見直し</span></div></div>
+      </div>
+    </div>
+
+    <div class="panel" id="pb" role="tabpanel">
+      <div class="flowmap">
+        <h4>現在の流れ <span>PRODUCT LP</span></h4>
+        <div class="fm">
+          <div><i>01</i>ファーストビュー（画像）</div>
+          <div class="cta"><i>—</i>定期購入ボタン</div>
+          <div><i>02</i>特徴・オファー（画像）</div>
+          <div class="cta"><i>—</i>定期購入ボタン</div>
+          <div><i>03</i>原材料・製法（画像）</div>
+          <div class="cta"><i>—</i>定期購入ボタン</div>
+          <div class="flag"><i>04</i>Amazon・楽天へのリンク<span class="note">購入先が分散</span></div>
+          <div><i>05</i>ドライフード詳細（画像）</div>
+          <div class="cta"><i>—</i>定期購入ボタン ×3</div>
+        </div>
+        <p class="caveat">※画像の内容は読み取れないため、ファイル構成からの推測を含みます。</p>
+      </div>
+      <div class="finds">
+        <div class="find"><span class="no">01</span><div><h3>ほぼ全体が画像で作られている</h3><p>見た目は自由に作れる反面、文字の修正やABテストのたびに画像を作り直す必要があり、表示も重くなりがちです。</p><span class="fix">見出し・価格・説明文はテキスト化し、画像は写真と図解に絞る</span></div></div>
+        <div class="find"><span class="no">02</span><div><h3>同じ購入ボタンが約6回</h3><p>ボタンが多いこと自体は良いのですが、すべて同じ見た目と文言だと、だんだん目に入らなくなります。</p><span class="fix">位置ごとに文言を変える（例：「まずはお試し」「定期でおトク」）</span></div></div>
+        <div class="find"><span class="no">03</span><div><h3>自社購入とモールの入口が並んでいる</h3><p>Amazon・楽天のリンクがページの上のほうにあり、定期購入へ進む方が分散している可能性があります。</p><span class="fix">モールのリンクは「その他の購入方法」としてページ下部へ</span></div></div>
+        <div class="find"><span class="no">04</span><div><h3>画像の代替テキスト・ページ情報が空</h3><p>画像の説明文（alt）が空で、ページタイトルも社内用の名前のままです。SNSで共有されたときの見え方にも影響します。</p><span class="fix">alt・タイトル・OGP画像を設定し、共有時も魅力が伝わる形に</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEMO ===== -->
+<section class="sec demo" id="demo">
+  <div class="wrap demo-grid">
+    <div>
+      <div class="sec-head rv" style="margin-bottom:26px">
+        <span class="eyebrow">BEFORE / AFTER</span>
+        <h2 class="sec-title">購入ボタンの置き方で、<br>こう変わります</h2>
+        <p class="sec-lead">記事LPを例に、ボタンを置く場所と、お試し条件を見せる場所を整理しました。切り替えてご覧ください。</p>
+      </div>
+      <div class="switch rv" role="group" aria-label="表示切り替え">
+        <button type="button" aria-pressed="false" data-ba="before">BEFORE</button>
+        <button type="button" aria-pressed="true" data-ba="after">AFTER</button>
+      </div>
+      <div class="ba-pane" id="ba-before">
+        <ul class="ba-list before">
+          <li><b>購入ボタンは最後の1か所</b>：長い本文を読み切った方だけが申し込める</li>
+          <li><b>クイズが必須</b>：申し込み直前に3問の回答が必要</li>
+          <li><b>条件はボタンから離れた場所</b>：お試し・保証の内容を探す必要がある</li>
+        </ul>
+      </div>
+      <div class="ba-pane on" id="ba-after">
+        <ul class="ba-list">
+          <li><b>気持ちが動く3か所にボタン</b>：商品紹介・口コミ・最後のまとめ</li>
+          <li><b>スマホは追従ボタン</b>：どこまで読んでも、すぐ申し込める</li>
+          <li><b>オファーボックスを先に</b>：価格・容量・返金保証をボタンの直前に</li>
+          <li><b>クイズは任意</b>：理解を深めたい方だけが楽しめる位置へ</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rv">
+      <div class="bars" aria-label="ページ内のボタン位置の比較">
+        <div class="bar"><div class="track" id="trackBefore"></div><span>BEFORE</span><small>ボタン1か所</small></div>
+        <div class="bar"><div class="track" id="trackAfter"></div><span>AFTER</span><small>3か所＋追従</small></div>
+      </div>
+      <div class="legend"><span><i style="background:var(--coral)"></i>購入ボタン</span><span><i style="background:var(--butter)"></i>クイズ</span><span><i style="background:var(--ink)"></i>追従ボタン</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STRUCTURE ===== -->
+<section class="sec structure" id="structure">
+  <div class="wrap">
+    <div class="sec-head center rv">
+      <span class="eyebrow">STRUCTURE</span>
+      <h2 class="sec-title">記事LPと商品LP、それぞれの「型」</h2>
+      <p class="sec-lead">毎回ゼロから考えるのではなく、型をもとに素早く作り、検証して育てていきます。色付きの番号は購入ボタンを置く位置です。</p>
+    </div>
+    <div class="st-grid">
+      <div class="st-card a rv">
+        <span class="kind">ARTICLE LP</span>
+        <h3>記事LP：気づき → 信頼 → 「試したい」</h3>
+        <p>広告から初めて訪れた、まだUNIAMを知らない方に向けて。</p>
+        <ol class="steps">
+          <li><b>問いかけのファーストビュー</b><span>「今のごはん、本当にあっていますか？」</span></li>
+          <li><b>ねこの体の話</b><span>肉食動物としての特徴を、図解でやさしく</span></li>
+          <li><b>よくある選び方の落とし穴</b><span>不安をあおりすぎず、事実ベースで</span></li>
+          <li class="key"><b>UNIAMという答え</b><span>獣医師が開発した理由と、商品の特徴</span></li>
+          <li><b>根拠と開発ストーリー</b><span>原材料・製法・専門家の声</span></li>
+          <li class="key"><b>カイヌシさんの声</b><span>実際のお声と、愛猫の写真</span></li>
+          <li class="key"><b>オファー・保証・よくある質問</b><span>不安を消してから、最後のひと押し</span></li>
+        </ol>
+      </div>
+      <div class="st-card b rv d1">
+        <span class="kind">PRODUCT LP</span>
+        <h3>商品LP：比べて、納得して、決める</h3>
+        <p>すでに関心があり、他の商品と比べている方に向けて。</p>
+        <ol class="steps">
+          <li class="key"><b>ベネフィットと価格のファーストビュー</b><span>何が良くて、いくらで試せるか</span></li>
+          <li><b>3つの特徴</b><span>アイコンと短いコピーで、ひと目で</span></li>
+          <li><b>原材料・成分</b><span>テキストで載せ、拡大しなくても読める表に</span></li>
+          <li><b>他のフードとの違い</b><span>比較表は根拠を確認しながら作成</span></li>
+          <li class="key"><b>定期便とお試しの比較</b><span>解約方法まで明記して安心感を</span></li>
+          <li><b>よくある質問</b><span>切り替え方・保存方法・食べない時</span></li>
+          <li class="key"><b>最後のCTAと、その他の購入方法</b><span>Amazon・楽天はここに</span></li>
+        </ol>
+      </div>
+    </div>
+    <div class="compliance rv">
+      <div class="ic"><svg width="24" height="24"><use href="#i-shield"/></svg></div>
+      <div>
+        <h3>表現の確認も、デザインの段階から一緒に</h3>
+        <p>健康に関わる商品なので、「病気が治る」と受け取られる表現や、根拠のない「No.1」「限定」表記は避けます。景品表示法やペットフードの表示ルールを意識し、根拠となる資料の注記の入れ方まで、社内チームの皆さまと確認しながら進めます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SCOPE ===== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">SCOPE</span>
+      <h2 class="sec-title">対応できる範囲</h2>
+      <p class="sec-lead">デザインを中心に、構成提案から実装まで一貫してお手伝いできます。</p>
+    </div>
+    <div class="scope-grid">
+      <div class="scope rv"><span class="lv main">メイン</span><div class="ic tone-coral"><svg><use href="#i-pen"/></svg></div><h3>LPデザイン</h3><p>記事LP・商品LPの新規デザインと、既存LPの改善。スマホでの見やすさを最優先に。</p></div>
+      <div class="scope rv d1"><span class="lv ok">対応可</span><div class="ic tone-teal"><svg><use href="#i-layout"/></svg></div><h3>構成提案</h3><p>訴求の順番、CTAの位置・文言、ABテストの案まで。社内チームの方針に合わせて。</p></div>
+      <div class="scope rv d2"><span class="lv ok">対応可</span><div class="ic tone-butter"><svg><use href="#i-image"/></svg></div><h3>FV・画像制作</h3><p>ファーストビューやバナー、図解の制作・修正。生成AIも活用し、案出しを素早く。</p></div>
+      <div class="scope rv d3"><span class="lv ok">対応可</span><div class="ic tone-ink"><svg><use href="#i-code"/></svg></div><h3>コーディング・実装</h3><p>HTML/CSS/JS、Shopifyでの実装。工数・報酬は別途ご相談させてください。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WORKFLOW ===== -->
+<section class="sec" style="background:#fff">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">WORKFLOW</span>
+      <h2 class="sec-title">1本のLPができるまで</h2>
+      <p class="sec-lead">まず全体の構成ラフで方向性をそろえてから、細部をつくり込みます。</p>
+    </div>
+    <div class="flow">
+      <div class="fl rv"><span class="n">STEP 1</span><h4>ご依頼・素材</h4><p>目的・ターゲット・素材を共有いただく</p></div>
+      <div class="fl rv d1"><span class="n">STEP 2</span><h4>構成ラフ</h4><p>情報の順番とCTA位置をワイヤーで</p></div>
+      <div class="fl rv d2"><span class="n">STEP 3</span><h4>デザイン</h4><p>スマホ版から作り、PC版へ展開</p></div>
+      <div class="fl rv d3"><span class="n">STEP 4</span><h4>確認・修正</h4><p>社内チームのご意見を反映</p></div>
+      <div class="fl rv"><span class="n">STEP 5</span><h4>公開・改善</h4><p>数値を見て、次の改善案へ</p></div>
+    </div>
+    <div class="hours rv">
+      <h3>月40〜50時間の使い方（一例）</h3>
+      <p>実際の配分は、その月の制作本数とご要望に合わせて相談しながら決めます。</p>
+      <div class="hbar" id="hbar">
+        <div class="h1" data-w="45">新規LP</div><div class="h2" data-w="25">既存LP改善</div><div class="h3" data-w="20">FV・画像</div><div class="h4" data-w="10">打合せ</div>
+      </div>
+      <div class="hlegend">
+        <span><i style="background:var(--coral)"></i><b>新規の記事LP・商品LP</b>約20時間</span>
+        <span><i style="background:var(--teal)"></i><b>既存LPの改善</b>約10時間</span>
+        <span><i style="background:#C99A2E"></i><b>FV・バナー・画像</b>約8時間</span>
+        <span><i style="background:var(--ink-soft)"></i><b>打合せ・振り返り</b>約4時間</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ANSWERS ===== -->
+<section class="sec answers" id="answers">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">ANSWERS</span>
+      <h2 class="sec-title">ご応募時のご質問への回答</h2>
+    </div>
+    <dl class="ans">
+      <div class="ans-row rv"><dt><span class="n">1</span>自己紹介・制作経験</dt><dd>LP制作・Web制作・開発チーム「Kairos」でWebディレクターを務める長濱です。LP・コーポレートサイト・店舗サイトの構成からデザイン、実装までをチームで手がけています。</dd></div>
+      <div class="ans-row rv"><dt><span class="n">2</span>ポートフォリオ・担当範囲</dt><dd>
+        <a href="https://kairos-epsilon.github.io/kairos-portfolio/" target="_blank" rel="noopener">kairos-epsilon.github.io/kairos-portfolio</a>（総合ポートフォリオ）<br>
+        <a href="https://writeful.academy/" target="_blank" rel="noopener">writeful.academy</a>（教育系サイト：情報整理と導線設計）<br>
+        <a href="https://shibue-shoten.github.io/shibue320/" target="_blank" rel="noopener">shibue-shoten.github.io/shibue320</a>（店舗サイト）<br>
+        担当範囲：構成・デザイン・実装（チームでの制作）</dd></div>
+      <div class="ans-row rv"><dt><span class="n">3</span>使用ツール</dt><dd>画像生成AI・Claude などのAIツール（構成案・FVの案出し・画像制作）、HTML / CSS / JavaScript、Shopify（実装）</dd></div>
+      <div class="ans-row rv"><dt><span class="n">4</span>対応可能な範囲</dt><dd><b>デザイン・構成提案・FVや画像の制作・コーディング／実装</b>まで対応できます。実装を含む場合の工数・報酬は、別途ご相談させてください。</dd></div>
+      <div class="ans-row rv"><dt><span class="n">5</span>稼働時間・連絡・開始時期</dt><dd><b>月40〜50時間</b>／平日の日中を中心にご連絡可能です／<b>ご契約後すぐ</b>に開始できます。</dd></div>
+      <div class="ans-row rv"><dt><span class="n">6</span>希望時間単価</dt><dd>
+        <div class="rate"><span>時間単価 <b>3,000</b>円（税込）</span><span>月額換算 <b>12〜15</b>万円（税込）</span></div>
+      </dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ===== CLOSING ===== -->
+<section class="sec closing">
+  <div class="wrap rv">
+    <span class="eyebrow">LET'S WORK TOGETHER</span>
+    <h2>ねこと暮らす毎日に、<br><span class="c">確かな選択肢</span>を届けるお手伝いを。</h2>
+    <p>まずは1本、既存LPの改善案からでも。社内チームの皆さまと相談しながら、UNIAMらしいLPを一緒に育てていけたら嬉しいです。</p>
+    <a class="btn" href="#answers">ご質問への回答を見る <span class="ar">›</span></a>
+    <svg class="cat-peek" viewBox="0 0 120 110" aria-hidden="true"><use href="#cat"/></svg>
+  </div>
+</section>
+
+<footer>© Kairos ― LP制作・Web制作・開発チーム ｜ UNIAM様 向けご提案資料（本ページは提案用のイメージで、公式サイトではありません）</footer>
+
+<script>
+(function(){
+  // スクロール表示
+  var rv = document.querySelectorAll('.rv');
+  function reveal(el){ el.classList.add('in'); }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ reveal(e.target); io.unobserve(e.target); } }); }, { threshold:.15 });
+    rv.forEach(function(el){ io.observe(el); });
+  } else { rv.forEach(reveal); }
+
+  // スマホ内スクロールで追従ボタン
+  var ps = document.getElementById('phoneScroll'), sc = document.getElementById('stickyCta');
+  ps.addEventListener('scroll', function(){ sc.classList.toggle('show', ps.scrollTop > 180); }, { passive:true });
+
+  // タブ
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(x){ x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
+      document.querySelectorAll('.panel').forEach(function(p){ p.classList.toggle('on', p.id === t.dataset.p); });
+    });
+  });
+
+  // BEFORE / AFTER のボタン位置マップ
+  function build(track, items, sticky){
+    items.forEach(function(it, i){
+      var d = document.createElement('span');
+      d.className = 'dot' + (it.q ? ' q' : '');
+      d.style.top = it.top + '%';
+      d.textContent = it.q ? 'Q' : 'BUY';
+      track.appendChild(d);
+      setTimeout(function(){ d.classList.add('on'); }, 250 + i * 220);
+    });
+    var s = document.createElement('span');
+    s.className = 'stick'; s.textContent = '追従';
+    track.appendChild(s);
+    if(sticky) s.classList.add('on');
+  }
+  var tb = document.getElementById('trackBefore'), ta = document.getElementById('trackAfter');
+  var built = false;
+  function buildAll(){
+    if(built) return; built = true;
+    build(tb, [{top:78, q:true},{top:88}], false);
+    build(ta, [{top:40},{top:62},{top:74, q:true},{top:84}], true);
+  }
+  if('IntersectionObserver' in window){
+    var bo = new IntersectionObserver(function(es){ if(es[0].isIntersecting){ buildAll(); bo.disconnect(); } }, { threshold:.4 });
+    bo.observe(ta);
+  } else { buildAll(); }
+
+  // 切り替え
+  var sw = document.querySelectorAll('.switch button');
+  sw.forEach(function(b){
+    b.addEventListener('click', function(){
+      sw.forEach(function(x){ x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      document.getElementById('ba-before').classList.toggle('on', b.dataset.ba === 'before');
+      document.getElementById('ba-after').classList.toggle('on', b.dataset.ba === 'after');
+      tb.parentNode.style.opacity = b.dataset.ba === 'before' ? '1' : '.45';
+      ta.parentNode.style.opacity = b.dataset.ba === 'after' ? '1' : '.45';
+    });
+  });
+  tb.parentNode.style.opacity = '.45';
+  tb.parentNode.style.transition = ta.parentNode.style.transition = 'opacity .4s';
+
+  // 稼働時間バー
+  var hb = document.getElementById('hbar');
+  function fill(){ hb.querySelectorAll('div').forEach(function(d){ d.style.width = d.dataset.w + '%'; }); }
+  if('IntersectionObserver' in window){
+    var ho = new IntersectionObserver(function(es){ if(es[0].isIntersecting){ fill(); ho.disconnect(); } }, { threshold:.5 });
+    ho.observe(hb);
+  } else { fill(); }
+})();
+</script>
+</body>
+</html>
